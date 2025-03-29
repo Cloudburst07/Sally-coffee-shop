@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    body{
+        background-color: black;
+        font-family: ending;
+        cursor: url("https://imgur.com/BIIZmdl.png"), auto;
+}
+    #bg{
+        background: no-repeat center center fixed;
+        background-size: cover;
+        display: block;
+        left: -5px;
+        top: -5px;
+        bottom: -5px;
+        right: -5px;
+        position: fixed;
+        z-index: -1;
+        margin: 5px;
+}
+    #endbg{
+        display: none;
+        background: no-repeat center center fixed;
+        background-size: cover;
+        left: -5px;
+        top: -5px;
+        bottom: -5px;
+        right: -5px;
+        position: fixed;
+        z-index: 10;
+        margin: 5px;
+        border: 1em black solid;
+        aspect-ratio: 1280/864;
+}
+
+    h1{
+        margin: auto;
+        text-align: center;
+        color: black;
+        border: #BEE788, 2px;
+}
+    #spinButton{
+        border: none;
+        color: white;
+        border-radius: 0.5em;
+        background-color: darkslategray;
+        box-shadow: 0 0.4em #999;
+        font-size: 1.5rem;
+        outline: none;
+        padding: 0.5em 1em;
+        font-family: ending;
+        margin: 0.4em 0;
+}
+    #spinButton:active{
+        background-color: rgb(62, 119, 119);
+        box-shadow: 0 0.2em #555;
+        transform: translateY(0.1em);
+        transition: 50ms;
+}
+    #spinButton:hover{
+        background-color: rgb(62, 119, 119);
+        transition: 200ms;
+}
+    
+    #guess{
+        border-bottom: darkslategray  3px solid;
+        background-color: rgba(255, 255, 255, 0);
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        height: 30px;
+        text-align: center;
+        border: none;
+        font-family: ending;
+        margin: 10px 0;
+    }
+
+    @font-face{
+        font-family: ending;
+        src: url("perfect_dos_vga_437/Perfect\ DOS\ VGA\ 437.ttf");
+}
+    body{
+        background-color: black;
+        font-family: ending;
+}
+    #text-box{
+        position: relative;
+        transform: translate(-50%,-50%);
+        left: 39%;
+        top: 80vh;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        border: darkslategrey 7px solid;
+        height: 15vh;
+        width: 65%;
+        padding: 20px;
+        display: none;
+}
+    
+    #d1, #d2, #d3, #d4, #d5, #d6, #d7, #d8, #d9, #d10, #f1, #f2, #f3, #special-text{
+        display: none;
+        font-size: calc(1.7rem * 0.9);
+}
+
+    #sally{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 18%;
+        height: 66%;
+        left: 88%;
+        top: 66%;
+}
+    button{
+        font-family: ending;
+        cursor: url("https://imgur.com/BIIZmdl.png"), auto;
+}
+    #next{
+        position: absolute;
+        bottom: 2%;
+        right: 1%;
+}
+    #next1:hover, #next2:hover, #next3:hover, #next4:hover, #next5:hover, #next6:hover, #next7:hover, #next8:hover, #next9:hover, #next10:hover, #restart1:hover, #restart2:hover, #restart3:hover, #guess:hover, #special-button:hover{
+        border: darkslategray 0.15em solid;
+        transition: 120ms;
+    }
+    #next1{
+        height: 1.6em;
+        width: 6.5em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+        display: none;
+}
+    #next2{
+        display: none;
+        height: 1.6em;
+        width: 6.5em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+}
+    #next3{
+        display: none;
+        height: 1.6em;
+        width: 6.7em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+}
+    #next4{
+        display: none;
+        height: 1.6em;
+        width: 6.3em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+}
+    #next5{
+        display: none;
+        height: 2.1em;
+        width: 8em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+}
+    #next6{
+        display: none;
+        height: 1.6em;
+        width: 8em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+}
+    #next7{
+        display: none;
+        height: 1.6em;
+        width: 6.5em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+}
+    #next8{
+        height: 1.6em;
+        width: 6.5em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+        display: none;
+}
+    #next9{
+        height: 1.6em;
+        width: 6.5em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+        display: none;
+}
+    #next10{
+        height: 1.6em;
+        width: 7em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+        display: none;
+}
+    #special-button{
+        height: 1.6em;
+        width: 6.8em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+        display: none;
+    }
+    #restart1{
+        height: 1.6em;
+        width: 6.5em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+        display: none;
+}
+    #restart2{
+        height: 1.6em;
+        width: 6.5em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+        display: none;
+}
+    #restart3{
+        height: 1.6em;
+        width: 6.5em;
+        font-size: 1.1rem;
+        border: 0;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        outline: none;
+        display: none;
+}
+    #health-bar{
+        display: none;
+}
+    #health-bar-position{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 45%;
+        left: 7%;
+}
+    #health-bean-base-position{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 36.9%;
+        left: 50%;
+        height: 100%;
+        max-height: 296px;
+        min-width: 56px;
+        vertical-align: top;
+}
+    #health-bean{
+        vertical-align: top;
+        width: 98%;
+        height: 0.01%;
+        max-height: 296px;
+        min-width: 56px; 
+        transition: all 500ms;
+        
+}
+    #the-game-itself{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        background-color: rgba(255, 255, 255, 0.6);
+        border: darkslategrey 7px solid;
+        width: 30%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+}
+    #settings-button{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 6%;
+        left: 97%;
+        height: 8%;
+        z-index: 12;
+}
+    #settings-page{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        width: 1000px;
+        height: 600px;
+        background-color: rgba(41, 66, 66, 0.65);
+        border: black 0.6rem solid;
+        border-radius: 10px;
+        display: none;
+        z-index: 12;
+}
+    #mute-button{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 20%;
+        left: 12%;
+        height: 93px;
+}
+    #unmute-button{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 20%;
+        left: 12%;
+        height: 90px;
+        display: none;
+}
+    #settings-title{
+        font-size: 3rem;
+        color: black;
+        margin: auto;
+        position: relative;
+        text-align: center;
+        border: black 0.6rem solid;
+        border-radius: 12px;
+        border-top: none;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        width: 8em;
+        background-color: rgba(255, 255, 255, 0.5) ;
+    }
+    #start{
+        color: white;
+        background: black;
+        position:fixed;
+        width:100%;
+        height:100%;
+        top:0px;
+        left:0px;
+        z-index:1000;
+}
+    h2{
+        text-align: center;
+        position: relative;
+        font-size: 16rem;
+        
+}
+    .texts{
+        display: none;
+        text-align: center;
+        margin: auto;
+        font-size: 1rem;
+}
+    #sally-text-bubble{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 25%;
+        left: 80%;
+        width: 25%;
+        height: 38%;
+}
+    .sally-responses{
+        font-size: 1rem;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 40%;
+        left: 42%;
+        display: none;
+}
+    #sally-bubble{
+        display: none;
+}
+    #second-day{
+        color: white;
+        background: black;
+        position:fixed;
+        width:100%;
+        height:100%;
+        top:0px;
+        left:0px;
+        z-index:1000;
+        display: none;
+        font-size: 16rem;
+}
+    #third-day{
+        color: white;
+        background: black;
+        position:fixed;
+        width:100%;
+        height:100%;
+        top:0px;
+        left:0px;
+        z-index:1000;
+        display: none;
+        font-size: 16rem;
+}
+    #endstats{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: 1200px;
+        height: 700px;
+        background-color: rgba(255, 255, 255, 0.65) ;
+        border: darkslategrey 7px solid;
+}
+    #endheader{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 15%;
+        left: 50%;
+}
+    #endtext1{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+}
+    #endtext2{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 40%;
+        left: 50%;
+}
+    #endtext3{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 72%;
+        left: 50%;
+        font-size: 50px;
+}
+    #retries{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 80%;
+}
+    #guesses{
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 40%;
+        left: 80%;
+}
+
+
+</style>
+
+</head>
+
+<body>
+    <div id="bg"> 
+        <img src="Background_images/coffee_bg_cat-export.gif" height="100%" alt="">
+    </div>
+    
+    <div id="text-box">
+
+        <div id="day1">
+            <h1 id="d1">Hey there! I'm Sally and welcome to your first day at work. Since it's your first time here, we'll start with something simple. You just need to guess the correct number of coffee beans needed for a perfect brew.</h1> 
+            <h1 id="d2">The number will be between 0 to 20 and you'll have a limited amount of tries so make sure to keep an eye on the bar to your left. That's your health bar, which will approximately indicate how many more times you can try again.</h1> 
+            <h1 id="d3">Also, I'll be helping you by giving you hints throughout all of this so you don't have to worry! Ready to start?</h1>
+            <h1 id="d4">Great! That's just the right amount of coffee beans. You can go back home now, I'll see you tomorrow.</h1>
+            <h1 id="f1">Ah, it seems like you ran out of tries. Don't be discouraged though, just try again!</h1>
+        </div>
+
+        <div id="day2">
+            <h1 id="d5">Welcome back! Since you did so well on your first day, I will be upping the difficulty a little bit. Instead of the number of beans being between 0 and 20, it'll now be between 0 and 50.</h1>
+            <h1 id="d6">You'll still have the same amount of tries so be careful! Of course, I'll still be here to help you in case you need it. Are you ready to start?</h1>
+            <h1 id="d7">Incredible! I didn't think you'd be able to do it, but it seems like you proved me wrong. Go back and make sure you rest well, since tomorrow will be even more difficult.</h1>
+            <h1 id="f2">Looks like you used up all your chances. Don't worry, you can restart from the same day!</h1>
+        </div>
+
+        <div id="day3">
+            <h1 id="d8">How have you been? Did you rest well like I told you? Well anyways, you'll need all the energy possible for today's task! This brew will be especially difficult. You'll have to guess the number between 0 and 100!</h1>
+            <h1 id="d9">I know it sounds like a lot, but I believe that you can do it! I'll also try to help you as much as possible. Goodluck!</h1>
+            <h1 id="d10">Wow! You're amazing! Of course, I believed in you, but that was still a shock to me. I have nothing left to teach you, you did great!</h1>
+            <h1 id="f3">Oh... you lost all of your lives. I guess that was really difficult, huh? It's okay though, I'll give you as many chances as you need!</h1>
+        </div>
+
+        <h1 id="special-text">Silly, how could the number of beans be 0? I guess you got lucky. I'll hand you the win, goodjob!</h1>
+
+
+
+            <div id="next">
+                <div id="next-buttons">
+                    <button id="next1" onclick="next1(), clickSound()">Understood</button>
+                    <button id="next2" onclick="next2(), clickSound()">Understood</button>
+                    <button id="next3" onclick="easy(), clickSound()">I'm ready!</button>
+                    <button id="next4" onclick="dayTwo(), clickSound()">See you!</button>
+                    <button id="next5" onclick="next5(), clickSound()">Okay, I'll try my best</button>
+                    <button id="next6" onclick="next6(), clickSound()">Let's begin!</button>
+                    <button id="next7" onclick="dayThree(), clickSound()">Bye!</button>
+                    <button id="next8" onclick="next8(), clickSound()">What!?</button>
+                    <button id="next9" onclick="next9(), clickSound()">Alright...</button>
+                    <button id="next10" onclick="next10(), clickSound()">Thank You!</button>
+                    <button id="restart1" onclick="easy(), clickSound()">Alright!</button>
+                    <button id="restart2" onclick="next6(), clickSound()">Restart</button>
+                    <button id="restart3" onclick="next9(), clickSound()">Okay!</button>
+                    <button id="special-button" onclick="next10(), clickSound()">Thanks!</button>
+                </div>
+            </div>
+        
+    </div>
+
+    <div id="health-bar-position">
+        <div id="health-bar">
+            <img src="Health_bar_images/Health_bar.PNG" height="100%" alt="">
+        </div>
+        <div id="health-bean-base-position">
+            <img src="Health_bar_images/health-coffee-second-export.png" height="100%" alt="" id="health-bean">
+        </div>
+    </div>
+    
+    <div id="the-game-itself">
+        <div>
+            <div id="easy-text" class="texts">
+                <h3>Guess a number between 0 and 20</h3>
+            </div>
+
+            <div id="medium-text" class="texts">
+                <h3>Guess a number between 0 and 50</h3>
+            </div>
+
+            <div id="hard-text" class="texts">
+                <h3>Guess a number between 0 and 100</h3>
+            </div>
+        </div>
+
+        <div>
+            <input id="guess" type="text" placeholder="Guess here" onclick="clickSound()">
+        </div>
+
+        <div id="spin">
+            <button id="spinButton" onclick="verif(), clickSound()">Submit</button>
+        </div>
+    </div>
+
+    <div id="sally" >
+        <img src="Other_images/Sally-idle-old-export.gif" height="100%" alt="">
+    </div>
+
+    <div id="sally-text-bubble">
+        <img src="Other_images/Text-box.png" height="100%"  alt="" id="sally-bubble">
+        <h3 class="sally-responses" id="big1">Try something smaller!</h3>
+        <h3 class="sally-responses" id="big2">Too big, the number should be lower than that!</h3>
+        <h3 class="sally-responses" id="big3">The number is too high!</h3>
+
+        <h3 class="sally-responses" id="small1">Too small, go with a bigger number!</h3>
+        <h3 class="sally-responses" id="small2">The number is too low!</h3>
+        <h3 class="sally-responses" id="small3">Try something bigger!</h3>
+    </div>
+
+    <div id="settings-button">
+        <img src="Other_images/Setting_Main_Icon.png" height="100%" alt="" onclick="settings(), clickSound()">
+    </div>
+
+    <div id="start">
+        <h2 onclick="bgMusic(), d1(), clickSound()" >Begin</h2>
+    </div>
+
+    <div id="second-day"> 
+        <h2 onclick="secondDay(), clickSound()">Start the second day?</h2>
+    </div>
+
+    <div id="third-day"> 
+        <h2 onclick="thirdDay(), clickSound()">Start the Third day?</h2>
+    </div>
+
+    <div id="endbg">
+        <img src="Background_images/coffee_bg_end.gif" height="100%" alt="">
+        <div id="endstats">
+            <h1 id="endheader">Here are the stats about this round:</h1>
+            <h1 id="endtext1">Your total amount of retries was: <h1 id="retries"></h1></h1>
+            <h1 id="endtext2">Your total amount of guesses was: <h1 id="guesses"></h1></h1>
+            <h1 id="endtext3">Thank you for playing!</h1>
+        </div>
+    </div>
+
+    <div id="settings-page">
+        <p id="settings-title">Settings</p>
+        <div id="mute-button">
+            <img src="Other_images/mute-button.png" height="100%" alt="" onclick="mute(), clickSound()">
+        </div>
+        <div id="unmute-button">
+            <img src="Other_images/unmute-button.png" height="100%" alt="" onclick="unmute(), clickSound()">
+        </div>
+    </div>
+
+
+</body>
+
+<script> 
+    var rnb;
+    var health =0;
+    var popSound = new Audio("Sound/328118__greenvwbeetle__pop-7.mp3")
+    //var bgMusicOne = new Audio("bg_music_1.mp3")
+    var bgMusicTwo = new Audio("Sound/bg_music_2.mp3")
+    var clicksound = new Audio("Sound/00000094.mp3")
+    var settingsPageStatus = 0
+    var hpHeight = health*16.6666
+    var difficulty
+    var responses1
+    var responses2
+    var hintStatus = 0
+    var endguess = 0
+    var endretries = 0
+
+    rnb = Math.floor(Math.random()*difficulty);
+        console.log("current health is", health);
+        console.log(difficulty)
+
+    function bgMusic(){
+        bgMusicTwo.volume=0.4;
+        bgMusicTwo.loop=true;
+        bgMusicTwo.play();
+        document.getElementById("start").style.display="none";
+        
+    }
+
+    function clickSound(){
+        clicksound.play();
+    }
+
+    function generateRnb() {
+        rnb = Math.floor(Math.random()*difficulty);
+        console.log("random number is", rnb);
+    }
+
+    function verif(){
+        let Guess = document.getElementById("guess").value;
+
+        if (Guess==rnb && hintStatus==0 && rnb==0){
+            console.log("You've discovered an easter egg!")
+            special();
+            endguess = endguess + 1;
+            setTimeout(() => {
+            }, 200);document.getElementById('guess').value = '';
+        }
+
+        else if (Guess==rnb && hintStatus==0){
+            console.log("correct");
+            checkwin();
+            endguess = endguess + 1;
+            setTimeout(() => {
+            }, 200);document.getElementById('guess').value = '';
+        }
+
+        else if(hintStatus==0){
+            health = health-1;
+            endguess = endguess + 1;
+            checkhealth();
+            hint();
+            checklives();
+            setTimeout(() => {
+            }, 200);document.getElementById('guess').value = '';
+        }
+    }
+
+    function checkhealth(){
+        hpHeight = 100-health*16.6666
+        document.getElementById("health-bean").style.height=hpHeight+"%";
+        console.log("current health is", health);
+    }
+
+    function hint(){
+        let Guess = document.getElementById("guess").value;
+        if (Guess>rnb){
+            responses1 = Math.floor(Math.random()*3);
+            console.log("guess is too big");
+            big();
+        }
+
+        else if (Guess<rnb){
+            responses2 = Math.floor(Math.random()*3);
+            console.log("guess is too small");
+            small();
+        }
+    }
+
+    function small(){
+        if(responses2==0 && hintStatus==0){
+            //texttimeout()
+            hintStatus = 1
+            document.getElementById("sally-bubble").style.display="block";
+            document.getElementById("small1").style.display="block";
+            setTimeout(texttimeout,3000);
+        }
+
+        else if(responses2==1 && hintStatus==0){
+            //texttimeout()
+            hintStatus = 1
+            document.getElementById("sally-bubble").style.display="block";
+            document.getElementById("small2").style.display="block";
+            setTimeout(texttimeout,3000);
+        }
+
+        else if(responses2==2 && hintStatus==0){
+            //texttimeout()
+            hintStatus = 1
+            document.getElementById("sally-bubble").style.display="block";
+            document.getElementById("small3").style.display="block";
+            setTimeout(texttimeout,3000);
+        }
+    }
+
+    function big(){
+        if(responses1==0 && hintStatus==0){
+            //texttimeout()
+            hintStatus = 1
+            document.getElementById("sally-bubble").style.display="block";
+            document.getElementById("big1").style.display="block";
+            setTimeout(texttimeout,3000);
+        }
+
+        else if (responses1==1 && hintStatus==0){
+            //texttimeout()
+            hintStatus = 1
+            document.getElementById("sally-bubble").style.display="block";
+            document.getElementById("big2").style.display="block";
+            setTimeout(texttimeout,3000);
+        }
+
+        else if (responses1==2 && hintStatus==0){
+            //texttimeout()
+            hintStatus = 1
+            document.getElementById("sally-bubble").style.display="block";
+            document.getElementById("big3").style.display="block";
+            setTimeout(texttimeout,3000);
+        }
+    }
+
+    function texttimeout(){
+        document.getElementById("big1").style.display="none";
+        document.getElementById("big2").style.display="none";
+        document.getElementById("big3").style.display="none";
+        document.getElementById("small1").style.display="none";
+        document.getElementById("small2").style.display="none";
+        document.getElementById("small3").style.display="none";
+        document.getElementById("sally-bubble").style.display="none";
+        hintStatus = 0
+    }
+
+    function checkwin(){
+        if (difficulty==21){
+            medium();
+        }
+
+        else if (difficulty==51){
+            hard();
+        }
+
+        else if (difficulty==101){
+            win();
+        }
+    }
+
+    function special(){
+        document.getElementById("text-box").style.display="block";
+        document.getElementById("the-game-itself").style.display="none";
+        document.getElementById("health-bar").style.display="none";
+        document.getElementById("special-text").style.display="block";
+        document.getElementById("special-button").style.display="block";
+    }
+
+    function checklives(){
+
+        if (health==0 && difficulty==21){
+            fail1();
+            endretries = endretries + 1;
+            console.log("Number of retries is " + endretries);
+        }
+
+        else if (health==0 && difficulty==51){
+            fail2();
+            endretries = endretries + 1;
+            console.log("Number of retries is " + endretries);
+        }
+
+        else if (health==0 && difficulty==101){
+            fail3();
+            endretries = endretries + 1;
+            console.log("Number of retries is " + endretries);
+        }
+        
+    }
+
+    function healthBarBeginning(){
+        document.getElementById("health-bar").style.display="block";
+        popSound.play();
+    }
+
+    function fail1(){
+        console.log("fail 1");
+        document.getElementById("text-box").style.display="block";
+        document.getElementById("f1").style.display="block";
+        document.getElementById("restart1").style.display="block";
+        document.getElementById("health-bar").style.display="none";
+        document.getElementById("the-game-itself").style.display="none";
+
+    }
+
+    function fail2(){
+        console.log("fail 2");
+        document.getElementById("text-box").style.display="block";
+        document.getElementById("f2").style.display="block";
+        document.getElementById("restart2").style.display="block";
+        document.getElementById("health-bar").style.display="none";
+        document.getElementById("the-game-itself").style.display="none";
+    }
+
+    function fail3(){
+        console.log("fail 3")
+        document.getElementById("text-box").style.display="block";
+        document.getElementById("f3").style.display="block";
+        document.getElementById("restart3").style.display="block";
+        document.getElementById("health-bar").style.display="none";
+        document.getElementById("the-game-itself").style.display="none";
+    }
+
+    function d1(){
+        document.getElementById("text-box").style.display="block";
+        document.getElementById("d1").style.display="block";
+        document.getElementById("next1").style.display="block";
+    }
+
+    function next1(){
+        document.getElementById("d1").style.display="none";
+        document.getElementById("d2").style.display="block";
+        document.getElementById("next1").style.display="none";
+        document.getElementById("next2").style.display="block";
+        setTimeout(healthBarBeginning, 3500);
+    }
+
+    function next2(){
+        document.getElementById("health-bar").style.display="block";
+        document.getElementById("d2").style.display="none";
+        document.getElementById("d3").style.display="block";
+        document.getElementById("next2").style.display="none";
+        document.getElementById("next3").style.display="block";
+    }
+
+    function easy(){
+        document.getElementById("next3").style.display="none";
+        document.getElementById("d3").style.display="none";
+        document.getElementById("text-box").style.display="none";
+        document.getElementById("the-game-itself").style.display="flex";
+        document.getElementById("easy-text").style.display="block";
+        document.getElementById("health-bar").style.display="block";
+        document.getElementById("f1").style.display="none";
+        document.getElementById("restart1").style.display="none";
+        health = 6;
+        checkhealth();
+        difficulty = 21;
+        generateRnb();
+    }
+
+    function medium(){
+        difficulty = 51;
+        generateRnb();
+        document.getElementById("the-game-itself").style.display="none";
+        document.getElementById("health-bar").style.display="none";
+        document.getElementById("text-box").style.display="block";
+        document.getElementById("d4").style.display="block";
+        document.getElementById("next4").style.display="block";
+    }
+
+    function dayTwo(){
+        document.getElementById("second-day").style.display="block";
+        document.getElementById("text-box").style.display="none";
+        document.getElementById("d4").style.display="none";
+        document.getElementById("next4").style.display="none";
+    }
+
+    function secondDay(){
+        document.getElementById("second-day").style.display="none";
+        document.getElementById("text-box").style.display="block";
+        document.getElementById("d5").style.display="block";
+        document.getElementById("next5").style.display="block";
+    }
+
+    function next5(){
+        document.getElementById("d5").style.display="none";
+        document.getElementById("next5").style.display="none";
+        document.getElementById("d6").style.display="block";
+        document.getElementById("next6").style.display="block";
+    }
+
+    function next6(){
+        document.getElementById("d6").style.display="none";
+        document.getElementById("next6").style.display="none";
+        document.getElementById("text-box").style.display="none";
+        document.getElementById("the-game-itself").style.display="flex";
+        document.getElementById("health-bar").style.display="block";
+        document.getElementById("easy-text").style.display="none";
+        document.getElementById("medium-text").style.display="block";
+        document.getElementById("f2").style.display="none";
+        document.getElementById("restart2").style.display="none";
+        health = 6;
+        checkhealth();
+        generateRnb();
+    }
+
+    function hard(){
+        difficulty = 101;
+        generateRnb();
+        health = 6;
+        checkhealth();
+        document.getElementById("the-game-itself").style.display="none";
+        document.getElementById("health-bar").style.display="none";
+        document.getElementById("text-box").style.display="block";
+        document.getElementById("d7").style.display="block";
+        document.getElementById("next7").style.display="block";
+    }
+
+    function dayThree(){
+        document.getElementById("third-day").style.display="block";
+        document.getElementById("text-box").style.display="none";
+        document.getElementById("d7").style.display="none";
+        document.getElementById("next7").style.display="none";
+    }
+
+    function thirdDay(){
+        document.getElementById("third-day").style.display="none";
+        document.getElementById("text-box").style.display="block";
+        document.getElementById("d8").style.display="block";
+        document.getElementById("next8").style.display="block";
+    }
+
+    function next8(){
+        document.getElementById("d8").style.display="none";
+        document.getElementById("next8").style.display="none";
+        document.getElementById("d9").style.display="block";
+        document.getElementById("next9").style.display="block";
+        document.getElementById("medium-text").style.display="none";
+        document.getElementById("hard-text").style.display="block";
+    }
+
+    function next9(){
+        document.getElementById("d9").style.display="none";
+        document.getElementById("next9").style.display="none";
+        document.getElementById("text-box").style.display="none";
+        document.getElementById("the-game-itself").style.display="flex";
+        document.getElementById("health-bar").style.display="block";
+        document.getElementById("f3").style.display="none";
+        document.getElementById("restart3").style.display="none";
+        health = 6;
+        checkhealth();
+        generateRnb();
+    }
+
+    function win(){
+        document.getElementById("text-box").style.display="block";
+        document.getElementById("the-game-itself").style.display="none";
+        document.getElementById("health-bar").style.display="none";
+        document.getElementById("d10").style.display="block";
+        document.getElementById("next10").style.display="block";
+    }
+    
+    function next10(){
+        //window.location.replace("endPage.html");
+        console.log("WINNN");
+        document.getElementById("endbg").style.display="block";
+        document.getElementById("endstats").style.display="block";
+        document.getElementById("retries").innerHTML = endretries;
+        document.getElementById("guesses").innerHTML = endguess;
+    }
+
+
+    function settings(){
+        if (settingsPageStatus==0){
+        document.getElementById("settings-page").style.display="block";
+        settingsPageStatus = settingsPageStatus + 1
+        console.log(settingsPageStatus)
+        }
+
+        else{
+            document.getElementById("settings-page").style.display="none";
+            settingsPageStatus = settingsPageStatus - 1
+        }
+    }
+
+    function mute(){
+        document.getElementById("unmute-button").style.display="block";
+        document.getElementById("mute-button").style.display="none";
+        bgMusicTwo.volume=0;
+    }
+
+    function unmute(){
+        document.getElementById("mute-button").style.display="block";
+        document.getElementById("unmute-button").style.display="none";
+        bgMusicTwo.volume=0.4;
+    }
+
+</script>
+
+</html>
