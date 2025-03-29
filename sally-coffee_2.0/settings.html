@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+</head>
+<style>
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+@font-face {
+    font-family: pixel;
+    src: url(./pixel-font/pixel.ttf);
+}
+
+*{
+    user-select: none;
+    cursor: url('https://i.imgur.com/Kd5pVCJ.png'), auto;
+    font-family: pixel;
+}
+    
+#settings-box{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    transform: translate(-50%, -60%);
+    left: 50%;
+    top: 50%;
+    background: url(./images/Background_images/settings_bg.png) no-repeat center;
+    background-size: contain;
+}
+
+#volume-indicator{
+    width: 10vh;
+    height: 10vh;
+    position: absolute;
+    transform: translate(-50%, -60%);
+    left: 30%;
+    top: 50%;
+    background: url(./images/Other_images/icon-sound-gold.png) no-repeat center;
+    background-size: contain;
+}
+
+#font-indicator{
+    width: 10vh;
+    height: 10vh;
+    position: absolute;
+    transform: translate(-50%, -60%);
+    left: 30%;
+    top: 70%;
+    background: url(./images/Other_images/icon-font-gold.png) no-repeat center;
+    background-size: contain;
+}
+
+#volume-slider-box{
+    width: 30%;
+    z-index: 100;
+    position: absolute;
+    transform: translate(-50%, -60%);
+    left: 55%;
+    top: 50%;
+}
+
+#font-slider-box{
+    width: 30%;
+    z-index: 100;
+    position: absolute;
+    transform: translate(-50%, -60%);
+    left: 55%;
+    top: 70%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 5vh;
+    border-radius: 5px;
+    background: url(./images/Other_images/slider-bar-gold.png) center no-repeat;
+    background-size: contain;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5vh;
+    height: 5vh;
+    border: 0;
+    background: url('./images/Other_images/slider-knob-gold.png') center no-repeat;
+    background-size: contain;
+}
+
+.slider::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5vh;
+    height: 5vh;
+    border: 0;
+    background: url('./images/Other_images/slider-knob-gold.png') center no-repeat;
+    background-size: contain;
+}
+
+#font-text, #volume-text{
+    position: absolute;
+    transform: translate(-50%, -60%);
+    left: 36.5%;
+    top: 49.75%;
+    text-align: center;
+    color: rgb(59, 39, 2);
+    vertical-align: middle;
+    margin: 0;
+}
+
+#font-text{
+    top: 69.8%;
+    font-size: 2vh;
+}
+
+</style>
+<body>
+    <div id="settings-box">
+        <div id="volume-indicator"></div>
+        <div id="font-indicator"></div>
+
+        <div id="volume-slider-box">
+            <input type="range" min="1" max="100" value="50" class="slider" id="volume-slider">
+        </div>
+        <h1 id="volume-text"></h1>
+
+        <div id="font-slider-box">
+            <input type="range" min="10" max="35" value="20" class="slider" id="font-slider">
+        </div>
+        <h1 id="font-text"></h1>
+
+    </div>
+
+    <script>
+//variables
+        var text = Array.from(document.querySelectorAll("p"));
+        var buttons =  Array.from(document.querySelectorAll("button"));
+        var titles =  Array.from(document.querySelectorAll("h1"));
+        var volumeSlider = document.getElementById("volume-slider");
+        var fontSlider = document.getElementById("font-slider");
+
+        var volumeOutput = document.getElementById("volume-text");
+        var fontOutput = document.getElementById("font-text");
+        volumeOutput.innerHTML = volumeSlider.value + "%";
+        fontOutput.innerHTML = fontSlider.value;
+
+//update slider values and stores them locally
+        volumeSlider.oninput = function() {
+            volumeOutput.innerHTML = this.value + "%";
+            localStorage.setItem("musicVolume", this.value / 100);
+            window.parent.postMessage({ type: "volumeChanged" }, "*");
+        }
+
+        fontSlider.oninput = function() {
+            fontOutput.innerHTML = this.value;
+            fontOutput.style.fontSize = this.value / 10 + "vh";
+            localStorage.setItem("fontSize", this.value / 10)
+            window.parent.postMessage({ type: "fontChanged" }, "*");
+        }
+
+//sends a message to the parent document to onfocus
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                window.parent.postMessage({ type: "escapePressed" }, "*");
+            }
+        });
+
+//applys the settings selected by the user
+        function applySettings(){
+            for (let i = 0; i < text.length; i++) {
+                text[i].style.fontSize = localStorage.getItem("fontSize") + "vh";
+            }
+            for (let i = 0; i < titles.length; i++) {
+                titles[i].style.fontSize = localStorage.getItem("fontSize") + "vh";
+            }
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].style.fontSize = localStorage.getItem("fontSize")+ "vh";
+            }
+            document.getElementById("volume-slider").value = localStorage.getItem("musicVolume") * 100;
+            document.getElementById("font-slider").value = localStorage.getItem("fontSize") * 10;
+            fontOutput.innerHTML = localStorage.getItem("fontSize") * 10;
+            fontOutput.style.fontSize = localStorage.getItem("fontSize") + "vh";
+            volumeOutput.innerHTML = localStorage.getItem("musicVolume") * 100 + "%";
+        }
+        
+    applySettings();
+
+    </script>
+</body>
+</html>

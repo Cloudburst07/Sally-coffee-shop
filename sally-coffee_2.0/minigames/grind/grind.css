@@ -1,0 +1,118 @@
+::-webkit-scrollbar{
+    display: none;
+}
+
+@font-face {
+    font-family: pixel;
+    src: url(../../pixel-font/pixel.ttf);
+}
+
+*{
+    user-select: none;
+    cursor: url('https://i.imgur.com/Kd5pVCJ.png'), auto;
+    font-family: pixel;
+}
+body{
+    text-align: center;
+    background-color: black;
+}
+
+#grinder {
+    width: 60px;
+    height: 20px;
+    background: url(../../images//Other_images/slider-bar-gold.png) center no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    margin: 50px auto;
+    margin-top: 25vh;
+    border-radius: 10px;
+    transform-origin: center;
+}
+
+#indicator {
+    width: 4vh;
+    height: 4vh;
+    background: url(../../images/Other_images/coffee-bean.png) center no-repeat;
+    background-size: cover;
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(0%, 30%);
+}
+
+#perfect-zone {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    background: green;
+    left: 50%;
+    transform: translate(-50%, 30%);
+    /* opacity: 0.5; */
+}
+
+#background{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    height: 99vh;
+    width: 99vw;
+    background: url(../../images/Background_images/counter_bg.png) center no-repeat;
+    background-size: cover;
+}
+
+#game-box{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 45%;
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 80vw;
+    height: 70vh;
+    border: solid 1vh rgb(90, 36, 12);
+}
+
+#start-button{
+    min-width: fit-content;
+    background-color: white;
+    border: solid black 0.5vh;
+    outline: 0;
+    font-size: 3vh;
+    padding: 0.5vh;
+    display: none;
+}
+
+#start-button:hover{
+    background-color: black;
+    color: white;
+    border: solid white 0.5vh
+}
+
+#dialog-box{
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 80%;
+    height: fit-content;
+    min-height: 14vh;
+    width: 97vw;
+    overflow: visible;
+}
+
+dialog{
+    text-align: initial;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 30%;
+    height: fit-content;
+    min-height: 8vh;
+    width: 93vw;
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 2vh;
+    letter-spacing: -0.07vw;
+    line-height: 3.5vh;
+    outline: 0;
+    border: solid rgb(71, 23, 3) 1vh;
+    overflow: visible;
+}

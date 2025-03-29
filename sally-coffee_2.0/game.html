@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Selection</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+    <div id="end-screen">
+        <h2 id="end-text"></h1>
+    </div>
+    <div id="background"></div>
+
+    <div id="game-box">
+        <div class="flex-item" id="grind" onclick="grind()">
+            <p class="item-description">Step 1: Grinding the coffee beans</p>
+        </div>
+        <div class="flex-item" id="distribution" onclick="distribute()">
+            <p class="item-description">Step 2: Preparing the coffee puck</p>
+        </div>
+        <div class="flex-item" id="extraction" onclick="extract()">
+            <p class="item-description">Step 3: Extracting the espresso</p>
+        </div>
+        <div class="flex-item" id="steaming" onclick="steam()">
+            <p class="item-description">Step 4: Steaming the milk</p>
+        </div>
+    </div>
+
+    <iframe 
+    src="./settings.html" 
+    style="
+    width: 99vw; 
+    height: 99vh; 
+    z-index: 100; 
+    position: absolute; 
+    transform: translate(-50%, -150%);
+    top: 50%;
+    left: 50%;
+    transition: 400ms ease;
+    border: none;"
+    id="settings-box">
+    </iframe>
+
+    <div id="dialog-box">
+        <dialog id="d1">
+        </dialog>
+        <dialog id="d2">
+
+        </dialog>
+        <dialog id="d3">
+
+        </dialog>
+        <dialog id="d4">
+
+        </dialog>
+        <dialog id="d5">
+
+        </dialog>
+        <dialog id="d6">
+
+        </dialog>
+        <dialog id="d7">
+
+        </dialog>
+        <dialog id="d8">
+
+        </dialog>
+        <dialog id="d9">
+
+        </dialog>
+        <dialog id="d10">
+
+        </dialog>
+    </div>
+
+<script src="./game.js"> </script>
+
+
+</body>
+</html>

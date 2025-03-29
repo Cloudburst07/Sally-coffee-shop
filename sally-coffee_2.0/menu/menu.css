@@ -1,0 +1,115 @@
+
+@font-face {
+    font-family: pixel;
+    src: url(../pixel-font/pixel.ttf);
+}
+
+*{
+    user-select: none;
+    overflow: hidden;
+    font-family: pixel;
+    cursor: url('https://i.imgur.com/Kd5pVCJ.png'), auto;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    background-color: black;
+}
+
+#start-screen{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    background-color: black;
+    z-index: 100;
+}
+
+#name-input{
+    color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    height: 5vh;
+    min-width: 0.5vw;
+    background-color: black;
+    font-size: 3vh;
+    padding: none;
+    text-align: center;
+    outline: none;
+    border: 0;
+    border-bottom: solid white 0.5vh;
+}
+
+#name-button{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 58%;
+    border: solid white 0.4vh;
+    background-color: black;
+    color: white;
+    font-size: 4vh;
+}
+
+#name-button:hover{
+    border: solid black 0.4vh;
+    color: black;
+    background-color: white;
+}
+
+#background-image{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    background: url(../images/Background_images/coffee_bg_cat-export.gif) no-repeat center;
+    background-size: cover;
+}
+
+#sally{
+    position: absolute;
+    height: 70vh;
+    width: 20vw;
+    transform: translate(-50%, -50%);
+    left: 85%;
+    top: 65%;
+    background: url(../images/Other_images/Sally-idle-old-export.gif) no-repeat center;
+    background-size: contain;
+}
+
+#dialog-box{
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 80%;
+    height: fit-content;
+    min-height: 14vh;
+    width: 97vw;
+}
+
+dialog{
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 80%;
+    height: fit-content;
+    min-height: 8vh;
+    width: 93vw;
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 2vh;
+    letter-spacing: -0.07vw;
+    line-height: 3.5vh;
+    outline: 0;
+    border: solid rgb(71, 23, 3) 1vh;
+    overflow: visible;
+}

@@ -1,0 +1,146 @@
+@font-face {
+    font-family: pixel;
+    src: url(./pixel-font/pixel.ttf);
+}
+
+*{
+    overflow: hidden;
+    user-select: none;
+    font-family: pixel;
+    cursor: url('https://i.imgur.com/Kd5pVCJ.png'), auto;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    background-color: black;
+}
+
+#background{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    height: 99vh;
+    width: 99vw;
+    background: url(./images/Background_images/counter_bg.png) center no-repeat;
+    background-size: cover;
+}
+
+#game-box{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 95vw;
+    height: 80vh;
+}
+
+.flex-item{
+    margin: 4vh;
+    width: 20vh;
+    height: 20vh;
+    background: white;
+    border: solid black 0.8vh;
+    overflow: initial;
+}
+.flex-item:hover{
+    outline: solid white 0.8vh;
+}
+.item-description{
+    text-align: center;
+    position: relative;
+    top: 22vh;
+    background-color: white;
+    padding: 1vh;
+    width: 120%;
+    transform: translate(-13%, 0%);
+    border: black solid 0.8vh;
+}
+
+#dialog-box{
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 80%;
+    height: fit-content;
+    min-height: 14vh;
+    width: 97vw;
+}
+
+dialog{
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 50%;
+    height: fit-content;
+    min-height: 8vh;
+    width: 93vw;
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 2vh;
+    letter-spacing: -0.07vw;
+    line-height: 3.5vh;
+    outline: 0;
+    border: solid rgb(71, 23, 3) 1vh;
+    overflow: visible;
+}
+
+#grind{
+    background: url(./images/Other_images/coffee-bean.png) center no-repeat;
+    background-size: contain;
+    background-color: white;
+}
+
+#distribution{
+    background: url(./images/Other_images/wdt.png) center no-repeat;
+    background-size: contain;
+    background-color: white;
+}
+
+#extraction{
+    background: url(./images/Other_images/coffee.png) center no-repeat;
+    background-size: contain;
+    background-color: white;
+}
+
+#steaming{
+    background: url(./images/Other_images/milk.png) center no-repeat;
+    background-size: contain;
+    background-color: white;
+}
+
+#end-screen{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: url(./images/Background_images/coffee_bg_end.gif) center no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+#end-text{
+    font-size: 6vh;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: solid 1vh rgb(71, 23, 3);
+    text-align: center;
+    padding: 2vh;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 80vh;
+    height: fit-content;
+}

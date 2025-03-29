@@ -1,0 +1,129 @@
+::-webkit-scrollbar{
+    display: none;
+}
+
+@font-face {
+    font-family: pixel;
+    src: url(../../pixel-font/pixel.ttf);
+}
+
+*{
+    user-select: none;
+    cursor: url('https://i.imgur.com/Kd5pVCJ.png'), auto;
+    font-family: pixel;
+}
+
+body {
+    text-align: center;
+    background-color: #3e2723;
+}
+
+.container{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 45%;
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 80vw;
+    height: 78vh;
+    min-height: fit-content;
+    border: solid 1vh rgb(90, 36, 12);
+    padding: 1vh;
+}
+
+#game-area {
+    width: 250px;
+    height: 250px;
+    background: #6d4c41;
+    margin: 20px auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#background{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    height: 99vh;
+    width: 99vw;
+    background: url(../../images/Background_images/counter_bg.png) center no-repeat;
+    background-size: cover;
+}
+
+#dialog-box{
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 80%;
+    height: fit-content;
+    min-height: 14vh;
+    width: 97vw;
+    overflow: visible;
+}
+
+dialog{
+    text-align: initial;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 30%;
+    height: fit-content;
+    min-height: 8vh;
+    width: 93vw;
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 2vh;
+    letter-spacing: -0.07vw;
+    line-height: 3.5vh;
+    outline: 0;
+    border: solid rgb(71, 23, 3) 1vh;
+    overflow: visible;
+}
+
+.ring {
+    background: transparent;
+    border: 4px solid #ffcc80;
+    border-radius: 50%;
+    position: absolute;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.ring.highlight {
+    border-color: #76ff03;  /* Green glow when in the perfect zone */
+    box-shadow: 0 0 15px 5px rgba(118, 255, 3, 0.8); /* Glowing effect */
+}
+
+.perfect-zone {
+    background: transparent;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#start-button{
+    min-width: fit-content;
+    background-color: white;
+    border: solid black 0.5vh;
+    outline: 0;
+    font-size: 3vh;
+    padding: 0.5vh;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 55%;
+    left: 50%;
+    display: none;
+}
+
+#start-button:hover{
+    background-color: black;
+    color: white;
+    border: solid white 0.5vh
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./grind.css">
+    <title>Grinding Coffee</title>    
+
+</head>
+
+<body>
+    <div id="background"></div>
+    <div id="game-box">
+        <h1 id="timer">Time left: 20 seconds</h1>
+        <div id="grinder">
+            <div id="perfect-zone"></div>
+            <div id="indicator"></div>
+        </div>
+
+        <p id="status">Grind Size: Adjusting...</p>
+        <p id="score">Score: 0 points</p>
+        <button id="start-button" onclick="init()">Start Game</button>
+    </div>
+
+    <iframe 
+    src="../../settings.html" 
+    style="
+    width: 99vw; 
+    height: 99vh; 
+    z-index: 100; 
+    position: absolute; 
+    transform: translate(-50%, -150%);
+    top: 50%;
+    left: 50%;
+    transition: 400ms ease;
+    border: none;"
+    id="settings-box">
+    </iframe>
+
+    <div id="dialog-box">
+        <dialog id="d1">
+        </dialog>
+        <dialog id="d2">
+
+        </dialog>
+        <dialog id="d3">
+
+        </dialog>
+        <dialog id="d4">
+
+        </dialog>
+        <dialog id="d5">
+
+        </dialog>
+        <dialog id="d6">
+
+        </dialog>
+        <dialog id="d7">
+
+        </dialog>
+        <dialog id="d8">
+
+        </dialog>
+        <dialog id="d9">
+
+        </dialog>
+    </div>
+
+    <script src="../grind/grind.js"></script>
+
+</body>
+</html>

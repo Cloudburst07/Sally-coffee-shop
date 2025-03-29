@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracting Coffee</title>
+    <link rel="stylesheet" href="./extract.css">
+</head>
+<body>
+    <div id="background"></div>
+    <div class="container">
+        <button id="start-button">Start Game</button>
+        <div id="game-area">
+        </div>
+        <p id="score">Score: 0</p>
+        <p id="timer">Time left: 30s</p>
+    </div>
+
+    <iframe 
+    src="../../settings.html" 
+    style="
+    width: 99vw; 
+    height: 99vh; 
+    z-index: 100; 
+    position: absolute; 
+    transform: translate(-50%, -150%);
+    top: 50%;
+    left: 50%;
+    transition: 400ms ease;
+    border: none;"
+    id="settings-box">
+    </iframe>
+
+    <div id="dialog-box">
+        <dialog id="d1">
+        </dialog>
+        <dialog id="d2">
+
+        </dialog>
+        <dialog id="d3">
+
+        </dialog>
+        <dialog id="d4">
+
+        </dialog>
+        <dialog id="d5">
+
+        </dialog>
+        <dialog id="d6">
+
+        </dialog>
+        <dialog id="d7">
+
+        </dialog>
+        <dialog id="d8">
+
+        </dialog>
+        <dialog id="d9">
+
+        </dialog>
+    </div>
+</body>
+<script src="./extract.js"></script>
+</html>
